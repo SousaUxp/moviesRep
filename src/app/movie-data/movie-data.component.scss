@@ -1,0 +1,119 @@
+.movieData {
+    background-color: rgba(0, 0, 0, .90);
+    border-radius: 7px;
+    color: rgb(172, 172, 172);
+    display: flex;
+    gap: 3rem;
+    margin: 1rem;
+    padding: 1rem 1.25rem;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        max-width: 50px;
+        object-fit: cover;
+
+    }
+
+    p,
+    h1 {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: .5rem;
+    }
+
+    &:hover {
+        background-color: rgba(34, 34, 34, .9);
+    }
+
+    &:hover+.extraData {
+        width: 700px;
+        padding: 2rem;
+        box-shadow: 0px 0px 12px 4px #000000;
+
+
+    }
+
+    .movieData--main {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .movieData--rank {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: .5rem;
+
+
+    }
+
+}
+
+.extraData {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 300px;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg,
+            rgb(14, 50, 66) 0%,
+            rgb(47, 55, 94) 25%,
+            rgb(60, 38, 69) 51%);
+    animation: AnimateBG 10s ease infinite;
+    box-shadow: 0px 0px 0px 0px #000000;
+
+    top: calc(var(--y, 0) * 1px - 50px);
+    left: calc(var(--x, 0) * 1px - 50px);
+    border-radius: 7px;
+
+    transition-property: width, padding;
+    transition-duration: .20s, .2s;
+
+    color: rgb(178, 178, 178);
+
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    img {
+        max-width: 200px;
+        border-radius: 10px;
+    }
+
+    .content--title {
+        font-weight: bold;
+    }
+
+    .content--ranking {
+        font-size: .75rem;
+        font-weight: 300;
+
+    }
+}
+
+.box {
+    background-color: rgba(100, 100, 100, 0.12);
+    padding: .25rem;
+    margin: .5rem;
+    box-shadow: 0px 0px 12px 4px #0000005c;
+
+}
+
+@keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}

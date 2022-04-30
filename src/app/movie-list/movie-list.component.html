@@ -1,0 +1,5 @@
+<div class="movie--list" infinite-scroll (scrolled)="onScrollDown($event)" (scrolledUp)="onScrollUp($event)" >
+    <div class="movie--single" *ngFor="let item of listArray ">
+        <movie-data></movie-data>
+    </div>
+</div>

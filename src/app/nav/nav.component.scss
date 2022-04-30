@@ -1,0 +1,23 @@
+.Nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
+    padding: 1rem 2rem;
+    margin: .5rem 0;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(23, 23, 23) 30%, rgb(23, 23, 23) 70%, rgb(0, 0, 0) 100%);
+    box-shadow: 4px 5px 15px 5px #000000;
+
+    a {
+        color: rgb(106, 105, 105);
+        font-size: 1.25rem;
+    }
+
+    .Nav--Icon {
+        font-size: 1.5rem;
+
+        .Nav--Span {
+            color: rgba(152, 22, 22, 1);
+        }
+    }
+}
