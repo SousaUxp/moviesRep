@@ -10,6 +10,9 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDataComponent } from './movie-data/movie-data.component';
 import { TopMoviesComponent } from './top-movies/top-movies.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,8 @@ import { TopMoviesComponent } from './top-movies/top-movies.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    HttpClientModule
     
   ],
   providers: [],

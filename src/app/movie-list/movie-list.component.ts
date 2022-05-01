@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { movie } from 'src/assets/interfaces';
+import { DataManagerService } from '../data-manager.service'; 
+
 
 @Component({
   selector: 'movie-list',
@@ -7,33 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   listArray: string[] = [];
-  movieAmount = 52
+  movieList: movie[] = []
+  movieAmount = 100
   sum = 20;
-  direction = "";
 
-  constructor() {
+  constructor(private dataService:DataManagerService) {
     this.appendItems();
   }
 
   ngOnInit(): void {
+    this.dataService.getData().subscribe((data:any)=>{
+      this.movieList = data
+      this.movieAmount = data.length
+      console.log(data)
+    })
   }
 
 
   onScrollDown(ev: any) {
-    console.log("scrolled down!!", ev);
 
     this.sum += 20;
     this.appendItems();
 
-    this.direction = "scroll down";
   }
 
   onScrollUp(ev: any) {
-    console.log("scrolled up!", ev);
     this.sum += 20;
     this.prependItems();
 
-    this.direction = "scroll up";
   }
 
 

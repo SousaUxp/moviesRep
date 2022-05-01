@@ -12,5 +12,6 @@ namespace WebApplication1.Models
     public int Ranking { get; set; }
     public string tags { get; set; }
     public string info { get; set; }
+    public DateTime Release_Date { get; set; }
   }
 }
