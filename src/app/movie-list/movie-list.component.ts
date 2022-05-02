@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { movie } from 'src/assets/interfaces';
-import { DataManagerService } from '../data-manager.service'; 
+import { DataManagerService } from '../data-manager.service';
 
 
 @Component({
@@ -14,15 +14,34 @@ export class MovieListComponent implements OnInit {
   movieAmount = 100
   sum = 20;
 
-  constructor(private dataService:DataManagerService) {
+  constructor(private dataService: DataManagerService) {
     this.appendItems();
   }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe((data:any)=>{
+    this.dataService.getData().subscribe((data: any) => {
       this.movieList = data
       this.movieAmount = data.length
-      console.log(data)
+
+      this.movieList.forEach(element => {
+        this.getImages(element.MovieName, element)
+      });
+    })
+
+
+
+  }
+
+  getImages(name:string, movie:movie) {
+    // console.log(name)
+    let movieName = name.replace(/\s+/g, '+')
+    // console.log(movieName)
+    this.dataService.getRespondingImage(movieName).subscribe((teste:any)=>{
+
+      movie.movieLink = teste.results[0] ? 'https://image.tmdb.org/t/p/w500/' + teste.results[0].poster_path : './assets/avengers.jpg'
+ 
+
+        
     })
   }
 
@@ -34,20 +53,14 @@ export class MovieListComponent implements OnInit {
 
   }
 
-  onScrollUp(ev: any) {
-    this.sum += 20;
-    this.prependItems();
 
-  }
 
 
   appendItems() {
     this.addItems("push");
   }
 
-  prependItems() {
-    this.addItems("unshift");
-  }
+
 
   addItems(_method: string) {
     for (let i = 0; i < this.sum; ++i) {
@@ -55,10 +68,13 @@ export class MovieListComponent implements OnInit {
         return
       if (_method === 'push') {
         this.listArray.push([i].join(""));
-      } else if (_method === 'unshift') {
-        this.listArray.unshift([i].join(""));
       }
     }
+  }
+  get movieCount() {
+    if (this.movieList[0])
+      return this.listArray
+    return []
   }
 
 }

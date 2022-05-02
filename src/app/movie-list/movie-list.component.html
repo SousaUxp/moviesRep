@@ -1,10 +1,18 @@
-<div class="movie--list" infinite-scroll (scrolled)="onScrollDown($event)" (scrolledUp)="onScrollUp($event)" >
-    <div class="movie--single" *ngFor="let item of listArray; let i = index   ">
+<div class="title">
+    <h1>All Movies</h1>
+</div>
+
+<div class="movie--list" infinite-scroll (scrolled)="onScrollDown($event)">
+    <div class="movie--single" *ngFor="let item of movieCount; let i = index   ">
         <movie-data [movieId]="movieList[i].MovieId"
         [movieName]="movieList[i].MovieName"
         [ranking]="movieList[i].Ranking"
         [tags]="movieList[i].tags"
         [info]="movieList[i].info"
+        [date]="movieList[i].Release_Date"
+        [img]="movieList[i].movieLink"
         ></movie-data>
+
+        
     </div>
 </div>

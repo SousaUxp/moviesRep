@@ -1,8 +1,17 @@
-.movie--list{
-    margin: 1rem;
-    padding: 1rem 0;
+.title {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 
-    .movie--single{
-        margin: 1rem 0;
+    h1 {
+        font-size: 4rem;
+        background: -webkit-linear-gradient(150deg, rgb(125, 125, 125) 25%, rgb(127, 0, 0) 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
+
+   
 }

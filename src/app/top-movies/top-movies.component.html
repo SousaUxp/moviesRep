@@ -1,1 +1,26 @@
-<p>top-movies works!</p>
+<div class="title">
+    <h1>Top Movies</h1>
+
+    <div class="select">
+        <label class="date" for="Date">Choose a date:</label>
+        <select id="year" name="year" (change)="defineCurrentMovies()" [(ngModel)]="currentYear">
+            <option [ngValue]="null">All Years</option>
+            <option *ngFor="let item of dates" [ngValue]="item">>
+                {{item}}
+            </option>
+        </select>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="movie--list">
+    <div class="movie--single" *ngFor="let item of currentTopMovies; let i = index   ">
+        <movie-data [movieId]="currentTopMovies[i].MovieId" [movieName]="currentTopMovies[i].MovieName"
+            [ranking]="currentTopMovies[i].Ranking" [tags]="currentTopMovies[i].tags" [info]="currentTopMovies[i].info"
+            [date]="currentTopMovies[i].Release_Date" [img]="currentTopMovies[i].movieLink"></movie-data>
+    </div>
+</div>

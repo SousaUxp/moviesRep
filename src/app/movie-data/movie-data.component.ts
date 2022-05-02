@@ -14,15 +14,21 @@ export class MovieDataComponent implements OnInit {
   @Input() ranking: number = 0
   @Input() tags: string = ''
   @Input() info: string = ''
+  @Input() date?: Date
+  @Input() img?: string = ''
 
-
-  constructor() { }
+  constructor() {
+    
+   }
 
 
 
   ngOnInit(): void {
     if (this.tags)
       this.tags = this.tags.split('|').join(', ')
+
+    if (this.date)
+      this.date = new Date(this.date)
   }
 
   updateStyleLocation(e: MouseEvent) {

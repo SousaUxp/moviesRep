@@ -4,5 +4,6 @@ export interface movie  {
     Ranking: number,
     tags: string,
     info: string,
-    Release_Date:Date
+    Release_Date:Date,
+    movieLink?:string
 }
