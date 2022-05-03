@@ -13,5 +13,6 @@ namespace WebApplication1.Models
     public string tags { get; set; }
     public string info { get; set; }
     public DateTime Release_Date { get; set; }
+    public int Revenue { get; set; }
   }
 }

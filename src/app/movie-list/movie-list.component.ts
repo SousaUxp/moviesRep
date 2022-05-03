@@ -33,9 +33,7 @@ export class MovieListComponent implements OnInit {
   }
 
   getImages(name:string, movie:movie) {
-    // console.log(name)
     let movieName = name.replace(/\s+/g, '+')
-    // console.log(movieName)
     this.dataService.getRespondingImage(movieName).subscribe((teste:any)=>{
 
       movie.movieLink = teste.results[0] ? 'https://image.tmdb.org/t/p/w500/' + teste.results[0].poster_path : './assets/avengers.jpg'

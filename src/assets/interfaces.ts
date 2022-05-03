@@ -5,5 +5,6 @@ export interface movie  {
     tags: string,
     info: string,
     Release_Date:Date,
-    movieLink?:string
+    movieLink?:string,
+    Revenue: number
 }

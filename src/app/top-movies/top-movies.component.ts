@@ -32,7 +32,7 @@ export class TopMoviesComponent implements OnInit {
 
       this.dates.sort()
 
-      this.movieList.sort((a, b) => (a.Ranking > b.Ranking) ? 1 : -1)
+      this.movieList.sort((a, b) => (a.Revenue < b.Revenue) ? 1 : -1)
 
     this.defineCurrentMovies()
 

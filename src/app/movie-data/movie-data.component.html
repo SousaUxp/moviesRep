@@ -4,19 +4,24 @@
             <h1>{{movieName}}</h1>
             <h1 class="date">{{date?.getFullYear()}}</h1>
         </div>
-        <!-- <img src="./assets/avengers.jpg" /> -->
         <img [src]="img" />
-        
+
         <p>{{tags}}</p>
 
     </div>
     <div class="movieData--rank">
-        <p>Rank </p>
-        <h1>{{ranking}}</h1>
+        <div *ngIf="ranking">
+            <h1>Rank </h1>
+            <p>{{ranking}} </p>
+        </div>
+        <div *ngIf="revenue">
+            <h1>Revenue </h1>
+            <p>{{revenue}} € </p>
+        </div>
     </div>
 </div>
 
-<div #movie class="extraData" >
+<div #movie class="extraData">
     <div class="content">
         <div class="box">
             <h4 class="content--title">{{movieName}}</h4>

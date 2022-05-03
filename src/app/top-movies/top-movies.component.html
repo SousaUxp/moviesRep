@@ -1,5 +1,5 @@
 <div class="title">
-    <h1>Top Movies</h1>
+    <h1>Top Movies By Revenue</h1>
 
     <div class="select">
         <label class="date" for="Date">Choose a date:</label>
@@ -20,7 +20,7 @@
 <div class="movie--list">
     <div class="movie--single" *ngFor="let item of currentTopMovies; let i = index   ">
         <movie-data [movieId]="currentTopMovies[i].MovieId" [movieName]="currentTopMovies[i].MovieName"
-            [ranking]="currentTopMovies[i].Ranking" [tags]="currentTopMovies[i].tags" [info]="currentTopMovies[i].info"
-            [date]="currentTopMovies[i].Release_Date" [img]="currentTopMovies[i].movieLink"></movie-data>
+           [tags]="currentTopMovies[i].tags" [info]="currentTopMovies[i].info"
+            [date]="currentTopMovies[i].Release_Date" [img]="currentTopMovies[i].movieLink" [revenue]="currentTopMovies[i].Revenue"></movie-data>
     </div>
 </div>

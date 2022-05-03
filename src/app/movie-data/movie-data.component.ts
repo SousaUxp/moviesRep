@@ -12,11 +12,12 @@ export class MovieDataComponent implements OnInit {
 
   @Input() movieId: number = 0
   @Input() movieName: string = ''
-  @Input() ranking: number = 0
+  @Input() ranking?: number
   @Input() tags: string = ''
   @Input() info: string = ''
   @Input() date?: Date
   @Input() img?: string = ''
+  @Input() revenue?: number 
 
   constructor() {
 
