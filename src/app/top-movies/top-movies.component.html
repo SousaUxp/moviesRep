@@ -5,7 +5,7 @@
         <label class="date" for="Date">Choose a date:</label>
         <select id="year" name="year" (change)="defineCurrentMovies()" [(ngModel)]="currentYear">
             <option [ngValue]="null">All Years</option>
-            <option *ngFor="let item of dates" [ngValue]="item">>
+            <option *ngFor="let item of dates" [ngValue]="item">
                 {{item}}
             </option>
         </select>

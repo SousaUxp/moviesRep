@@ -11,10 +11,9 @@ export class TopMoviesComponent implements OnInit {
   movieList: movie[] = []
   dates: string[] = []
   currentTopMovies: any[] = []
-  currentYear: any
+  currentYear: any = null
 
   constructor(private dataService: DataManagerService) {
-
   }
 
   ngOnInit(): void {
@@ -35,6 +34,9 @@ export class TopMoviesComponent implements OnInit {
 
       this.movieList.sort((a, b) => (a.Ranking > b.Ranking) ? 1 : -1)
 
+    this.defineCurrentMovies()
+
+
     })
 
 
@@ -45,13 +47,18 @@ export class TopMoviesComponent implements OnInit {
     this.currentTopMovies = []
     if (!this.currentYear) {
       this.currentTopMovies = this.movieList.slice(0, 10)
+      this.currentTopMovies.forEach(el => {
+        this.getImages(el.MovieName, el)
+      });
+      
     } else {
       this.movieList.forEach(movie => {
+        
         if (this.currentTopMovies.length == 10)
           return
 
         let year = movie.Release_Date.getFullYear() as unknown as string
-        if (year == this.currentYear) {
+        if (year == this.currentYear ) {
           this.currentTopMovies.push(movie)
           this.getImages(movie.MovieName, movie)
 
@@ -65,9 +72,7 @@ export class TopMoviesComponent implements OnInit {
 
 
   getImages(name:string, movie:movie) {
-    // console.log(name)
     let movieName = name.replace(/\s+/g, '+')
-    // console.log(movieName)
     this.dataService.getRespondingImage(movieName).subscribe((teste:any)=>{
 
       movie.movieLink = teste.results[0] ? 'https://image.tmdb.org/t/p/w500/' + teste.results[0].poster_path : './assets/avengers.jpg'
