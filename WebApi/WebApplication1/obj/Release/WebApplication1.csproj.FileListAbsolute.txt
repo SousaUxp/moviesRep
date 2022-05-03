@@ -86,3 +86,7 @@ C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\obj\Release\WebAppli
 C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\obj\Release\WebApplication1.csproj.CopyComplete
 C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\obj\Release\WebApplication1.dll
 C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\obj\Release\WebApplication1.pdb
+C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\bin\EntityFramework.dll
+C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\bin\EntityFramework.SqlServer.dll
+C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\bin\EntityFramework.xml
+C:\Users\sousa\Desktop\movies\movies\WebApi\WebApplication1\bin\EntityFramework.SqlServer.xml
