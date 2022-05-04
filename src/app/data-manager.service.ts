@@ -22,6 +22,10 @@ export class DataManagerService {
     return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=cc90379751a7cf1a931812a87b66c344&query=${name}`)
   }
 
+  getTopData(year:string){
+    return this.http.get<movie[]>(`${ApiLink}/Movies/${year}`)
+  }
+
   get data() {
     return this.myData
   }

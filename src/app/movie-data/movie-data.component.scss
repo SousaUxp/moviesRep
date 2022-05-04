@@ -47,6 +47,7 @@
     }
 
     .movieData--rank {
+        
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -64,6 +65,7 @@
 }
 
 .extraData {
+    pointer-events:none;
     display: hidden ;
     overflow: hidden;
     position: absolute;

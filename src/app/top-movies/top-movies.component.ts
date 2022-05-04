@@ -19,9 +19,7 @@ export class TopMoviesComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getData().subscribe((data: any) => {
       this.movieList = data
-
       this.movieList.forEach((movie: movie) => {
-
         movie.Release_Date = new Date(movie.Release_Date)
         let year = movie.Release_Date.getFullYear() as unknown as string
 
@@ -39,7 +37,7 @@ export class TopMoviesComponent implements OnInit {
 
     })
 
-
+    this.dataService.getTopData
 
   }
 
@@ -52,20 +50,15 @@ export class TopMoviesComponent implements OnInit {
       });
       
     } else {
-      this.movieList.forEach(movie => {
+      this.dataService.getTopData(this.currentYear).subscribe((data)=>{
+        this.currentTopMovies = data
+
+        this.currentTopMovies.forEach(el => {
+          this.getImages(el.MovieName, el)
+        });
         
-        if (this.currentTopMovies.length == 10)
-          return
+      })
 
-        let year = movie.Release_Date.getFullYear() as unknown as string
-        if (year == this.currentYear ) {
-          this.currentTopMovies.push(movie)
-          this.getImages(movie.MovieName, movie)
-
-        }
-
-        return
-      });
     }
 
   }

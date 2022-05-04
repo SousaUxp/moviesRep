@@ -17,9 +17,9 @@ namespace WebApplication1.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public string Get(string id)
         {
-            return "value";
+            return id;
         }
 
         // POST api/values

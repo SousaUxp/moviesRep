@@ -12,20 +12,44 @@ namespace WebApplication1.Controllers
 {
     public class MoviesController : ApiController
     {
-      public HttpResponseMessage Get()
+    public HttpResponseMessage Get()
     {
       string query = @"select * from dbo.Movies";
       DataTable table = new DataTable();
-       using (var con = new SqlConnection(ConfigurationManager.
-         ConnectionStrings["MoviesAppDB"].ConnectionString))
-         using(var cmd = new SqlCommand(query, con))
-        using(var da= new SqlDataAdapter(cmd))
+      using (var con = new SqlConnection(ConfigurationManager.
+        ConnectionStrings["MoviesAppDB"].ConnectionString))
+      using (var cmd = new SqlCommand(query, con))
+      using (var da = new SqlDataAdapter(cmd))
       {
         cmd.CommandType = CommandType.Text;
         da.Fill(table);
       }
-       return Request.CreateResponse(HttpStatusCode.OK, table);
+      return Request.CreateResponse(HttpStatusCode.OK, table);
+    }
+
+    // GET api/values/5
+    public HttpResponseMessage Get(string id)
+    {
+
+      string query = @"SELECT TOP 10 * FROM dbo.Movies
+WHERE Release_Date  LIKE '%"+id+"%' order by Revenue DESC ";
+      DataTable table = new DataTable();
+      using (var con = new SqlConnection(ConfigurationManager.
+        ConnectionStrings["MoviesAppDB"].ConnectionString))
+      using (var cmd = new SqlCommand(query, con))
+      using (var da = new SqlDataAdapter(cmd))
+      {
+        cmd.CommandType = CommandType.Text;
+        da.Fill(table);
+      }
+
+      return Request.CreateResponse(HttpStatusCode.OK, table);
 
     }
-    }
+
+
+
+
+  }
+
 }
